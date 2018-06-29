@@ -60,7 +60,7 @@ class PaidAccessField extends Field {
 	 * {@inheritdoc}
 	 */
 	public function retrieve(ElggEntity $entity) {
-		if (!$entity->paid_access_plans && !$entity->paid_access_amount && !$entity->paid_access_currency) {
+		if (!$entity->paid_access_plans && !$entity->paid_access_amount) {
 			return null;
 		}
 

@@ -60,7 +60,7 @@ class PaidDownloadField extends Field {
 	 * {@inheritdoc}
 	 */
 	public function retrieve(ElggEntity $entity) {
-		if (!$entity->paid_download_plans && !$entity->paid_download_amount && !$entity->paid_download_currency) {
+		if (!$entity->paid_download_plans && !$entity->paid_download_amount) {
 			return null;
 		}
 
