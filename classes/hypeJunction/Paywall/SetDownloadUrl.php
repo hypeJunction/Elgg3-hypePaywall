@@ -3,9 +3,10 @@
 namespace hypeJunction\Paywall;
 
 use Elgg\Hook;
-use hypeJunction\Payments\Amount;
 
 class SetDownloadUrl {
+
+	use Downloadable;
 
 	/**
 	 * Rewrite download URL
@@ -26,30 +27,12 @@ class SetDownloadUrl {
 			return null;
 		}
 
-		$paywall_enabled = function (\ElggEntity $entity) use (&$paywall_enabled) {
-			$plans = (array) $entity->paid_download_plans;
-			$amount = new Amount((int) $entity->paid_download_amount, $entity->paid_download_currency);
-
-			if (!empty($plans) || !empty($amount->getAmount())) {
-				return true;
-			}
-
-			$owner = $entity->getOwnerEntity();
-			if ($owner && $paywall_enabled($owner)) {
-				return true;
-			}
-
-			$container = $entity->getContainerEntity();
-			if ($container && $paywall_enabled($container)) {
-				return true;
-			}
-		};
-
-		if ($paywall_enabled($file)) {
-			return elgg_generate_url('paywall:download', [
+		if ($this->isPaywallEnabled($file)) {
+			$url = elgg_generate_url('paywall:download', [
 				'guid' => $file->guid,
 			]);
-		}
 
+			return elgg_normalize_site_url($url);
+		}
 	}
 }

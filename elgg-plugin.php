@@ -1,6 +1,8 @@
 <?php
 
 return [
+	'bootstrap' => \hypeJunction\Paywall\Bootstrap::class,
+
 	'actions' => [
 		'paywall/pay/access' => [
 			'controller' => \hypeJunction\Paywall\AccessPaymentAction::class,
@@ -9,6 +11,7 @@ return [
 			'controller' => \hypeJunction\Paywall\DownloadPaymentAction::class,
 		],
 	],
+
 	'routes' => [
 		'paywall:pay:access' => [
 			'path' => '/paywall/pay/access/{guid}',
