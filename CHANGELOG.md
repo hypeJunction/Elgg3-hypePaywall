@@ -1,3 +1,13 @@
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/hypeJunctionPro/Elgg3-hypePaywall/compare/1.1.0...1.2.0) (2018-11-12)
+
+
+### Features
+
+* **downloads:** rework downloads permission logic ([1027879](https://github.com/hypeJunctionPro/Elgg3-hypePaywall/commit/1027879))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/hypeJunctionPro/Elgg3-hypePaywall/compare/1.0.1...1.1.0) (2018-06-29)
 
