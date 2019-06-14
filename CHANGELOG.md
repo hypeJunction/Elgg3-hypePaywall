@@ -1,3 +1,14 @@
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/hypeJunctionPro/Elgg3-hypePaywall/compare/1.2.0...1.2.1) (2019-06-14)
+
+
+### Features
+
+* **paywall:** allow restricting access to all site subscribers ([59309d1](https://github.com/hypeJunctionPro/Elgg3-hypePaywall/commit/59309d1))
+* **plans:** filter out internal use plans from subscription form ([ab2dd13](https://github.com/hypeJunctionPro/Elgg3-hypePaywall/commit/ab2dd13))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/hypeJunctionPro/Elgg3-hypePaywall/compare/1.1.0...1.2.0) (2018-11-12)
 
