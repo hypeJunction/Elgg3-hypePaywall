@@ -10,7 +10,12 @@ echo elgg_view_entity($entity, [
 $plans = array_map(function ($e) {
 	return get_entity($e);
 }, (array) $entity->paid_access_plans);
+
 $plans = array_filter($plans);
+
+$plans = array_filter($plans, function($p) {
+	return !$p->internal_use;
+});
 
 if (!empty($plans)) {
 	$subscribe = elgg_view_form('subscriptions/subscribe', [], [
