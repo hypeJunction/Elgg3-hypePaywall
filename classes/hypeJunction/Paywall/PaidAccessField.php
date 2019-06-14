@@ -44,6 +44,7 @@ class PaidAccessField extends Field {
 	public function save(ElggEntity $entity, ParameterBag $parameters) {
 		$value = $parameters->get($this->name);
 
+		$wall = (bool) elgg_extract('wall', $value);
 		$plans = elgg_extract('plans', $value);
 		$price = elgg_extract('price', $value);
 		$amount = elgg_extract('amount', $price, '0');
@@ -51,6 +52,7 @@ class PaidAccessField extends Field {
 
 		$amount = Amount::fromString($amount, $currency);
 
+		$entity->paid_access_wall = $wall;
 		$entity->paid_access_plans = $plans;
 		$entity->paid_access_amount = $amount->getAmount();
 		$entity->paid_access_currency = $amount->getCurrency();
@@ -60,11 +62,12 @@ class PaidAccessField extends Field {
 	 * {@inheritdoc}
 	 */
 	public function retrieve(ElggEntity $entity) {
-		if (!$entity->paid_access_plans && !$entity->paid_access_amount) {
+		if (!$entity->paid_access_wall && !$entity->paid_access_plans && !$entity->paid_access_amount) {
 			return null;
 		}
 
 		return [
+			'wall' => $entity->paid_access_wall,
 			'plans' => $entity->paid_access_plans,
 			'price' => new Amount((int) $entity->paid_access_amount, $entity->paid_access_currency),
 		];

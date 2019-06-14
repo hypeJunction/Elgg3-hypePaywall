@@ -44,6 +44,7 @@ class PaidDownloadField extends Field {
 	public function save(ElggEntity $entity, ParameterBag $parameters) {
 		$value = $parameters->get($this->name);
 
+		$wall = (bool) elgg_extract('wall', $value);
 		$plans = elgg_extract('plans', $value);
 		$price = elgg_extract('price', $value);
 		$amount = elgg_extract('amount', $price, '0');
@@ -51,6 +52,7 @@ class PaidDownloadField extends Field {
 
 		$amount = Amount::fromString($amount, $currency);
 
+		$entity->paid_download_wall = $wall;
 		$entity->paid_download_plans = $plans;
 		$entity->paid_download_amount = $amount->getAmount();
 		$entity->paid_download_currency = $amount->getCurrency();
@@ -60,11 +62,12 @@ class PaidDownloadField extends Field {
 	 * {@inheritdoc}
 	 */
 	public function retrieve(ElggEntity $entity) {
-		if (!$entity->paid_download_plans && !$entity->paid_download_amount) {
+		if (!$entity->paid_download_wall && !$entity->paid_download_plans && !$entity->paid_download_amount) {
 			return null;
 		}
 
 		return [
+			'wall' => $entity->paid_download_wall,
 			'plans' => $entity->paid_download_plans,
 			'price' => new Amount((int) $entity->paid_download_amount, $entity->paid_download_currency),
 		];

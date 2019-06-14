@@ -7,9 +7,15 @@ echo elgg_view_entity($entity, [
 	'class' => 'paywall-entity-preview',
 ]);
 
+$plan_guids = (array) $entity->paid_access_plans;
+if ($entity->paid_access_wall) {
+	$site_plan_guids = (array) elgg_get_config('subscriptions.site_membership_plans');
+	$plan_guids = array_merge($plan_guids, $site_plan_guids);
+}
+
 $plans = array_map(function ($e) {
 	return get_entity($e);
-}, (array) $entity->paid_access_plans);
+}, $plan_guids);
 
 $plans = array_filter($plans);
 

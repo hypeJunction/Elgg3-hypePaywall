@@ -6,14 +6,20 @@ return [
 	'field:paid_access' => 'Paid Access',
 	'field:paid_download' => 'Paid Download',
 
-	'paywall:field:access_plans' => 'Members only access',
-	'paywall:field:access_plans:help' => 'Require one of these plans to access the post',
+	'paywall:field:paywalled_access' => 'Enable paywall',
+	'paywall:field:paywalled_access:help' => 'Restrict access to users with an active site subscription',
+
+	'paywall:field:paywalled_downloads' => 'Enable paywall',
+	'paywall:field:paywalled_downloads:help' => 'Restrict downloads to users with an active site subscription',
+
+	'paywall:field:access_plans' => 'Additional access plans',
+	'paywall:field:access_plans:help' => 'Also grant access to users with these plans to access the post',
 	'paywall:field:access_price' => 'Paid Access',
 	'paywall:field:access_price:help' => 'Allow users to purchase access to the post',
 
-	'paywall:field:download_plans' => 'Members only download',
-	'paywall:field:download_plans:help' => 'Require one of these plans to download the file',
-	'paywall:field:download_price' => 'Paid Access',
+	'paywall:field:download_plans' => 'Additional access plans',
+	'paywall:field:download_plans:help' => 'Also grant access to users with these plans to download the file',
+	'paywall:field:download_price' => 'Paid Download',
 	'paywall:field:download_price:help' => 'Allow users to purchase download to the file',
 
 	'PostAccessException' => 'Access to this post is restricted to paying members',

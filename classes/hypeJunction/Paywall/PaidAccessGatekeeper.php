@@ -23,16 +23,23 @@ class PaidAccessGatekeeper {
 
 		$entity = $hook->getEntityParam();
 
+		$wall = $entity->paid_access_wall;
 		$plans = (array) $entity->paid_access_plans;
 		$amount = new Amount((int) $entity->paid_access_amount, $entity->paid_access_currency);
 
-		if (empty($plans) && empty($amount->getAmount())) {
+		if (empty($wall) && empty($plans) && empty($amount->getAmount())) {
 			return;
 		}
 
 		$owner = $entity->getOwnerEntity();
 		if ($owner->canEdit()) {
 			return;
+		}
+
+		if ($wall) {
+			$site_plans = (array) elgg_get_config('subscriptions.site_membership_plans');
+
+			$plans = array_merge($plans, $site_plans);
 		}
 
 		if ($plans) {
