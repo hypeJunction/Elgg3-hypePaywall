@@ -1,3 +1,13 @@
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/hypeJunction/Elgg3-hypePaywall/compare/1.2.1...1.2.2) (2019-06-14)
+
+
+### Bug Fixes
+
+* **releases:** update git package location ([a922138](https://github.com/hypeJunction/Elgg3-hypePaywall/commit/a922138))
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/hypeJunctionPro/Elgg3-hypePaywall/compare/1.2.0...1.2.1) (2019-06-14)
 
