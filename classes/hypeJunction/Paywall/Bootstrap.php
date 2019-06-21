@@ -48,7 +48,7 @@ class Bootstrap extends PluginBootstrap {
 		elgg_register_plugin_hook_handler('transaction:paid', 'payments', ProcessSuccessfulTransaction::class);
 		elgg_register_plugin_hook_handler('transaction:refunded', 'payments', ProcessRefundedTransaction::class);
 
-		elgg_register_plugin_hook_handler('download:url', 'file', SetDownloadUrl::class);
+		elgg_register_plugin_hook_handler('download:url', 'file', SetDownloadUrl::class, 900);
 
 		elgg_register_plugin_hook_handler('permissions_check:download', 'all', CanDownloadPermission::class);
 	}
