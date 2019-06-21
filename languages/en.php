@@ -47,4 +47,7 @@ return [
 		You can view the post at:
 		%s
 	',
+
+	'paywall:access:walled' => 'Premium Content',
+	'paywall:download:walled' => 'Premium Download',
 ];

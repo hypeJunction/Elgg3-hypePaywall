@@ -51,6 +51,8 @@ class Bootstrap extends PluginBootstrap {
 		elgg_register_plugin_hook_handler('download:url', 'file', SetDownloadUrl::class, 900);
 
 		elgg_register_plugin_hook_handler('permissions_check:download', 'all', CanDownloadPermission::class);
+
+		elgg_extend_view('object/elements/imprint/contents', 'paywall/imprint');
 	}
 
 	/**
