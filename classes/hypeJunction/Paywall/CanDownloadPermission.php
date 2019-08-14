@@ -38,7 +38,7 @@ class CanDownloadPermission {
 		}
 
 		if (!$user) {
-			return null;
+			return false;
 		}
 
 		if ($entity->canEdit($user->guid)) {
