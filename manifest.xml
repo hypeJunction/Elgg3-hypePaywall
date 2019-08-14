@@ -6,7 +6,7 @@
 
     <description>Restrict access to content posts to paying members</description>
     <category>payments</category>
-    <version type="dist">1.2.3</version>
+    <version type="dist">1.2.4</version>
 
     <author>Ismayil Khayredinov (info@hypejunction.com)</author>
     <website>http://www.hypejunction.com/</website>

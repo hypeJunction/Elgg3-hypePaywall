@@ -1,3 +1,13 @@
+<a name="1.2.4"></a>
+## [1.2.4](https://github.com/hypeJunction/Elgg3-hypePaywall/compare/1.2.3...1.2.4) (2019-08-14)
+
+
+### Bug Fixes
+
+* **perms:** do not allow downloads from guest users ([8ab697a](https://github.com/hypeJunction/Elgg3-hypePaywall/commit/8ab697a))
+
+
+
 <a name="1.2.3"></a>
 ## [1.2.3](https://github.com/hypeJunction/Elgg3-hypePaywall/compare/1.2.2...1.2.3) (2019-06-21)
 
