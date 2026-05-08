@@ -2,7 +2,7 @@
 
 namespace hypeJunction\Paywall;
 
-class PostAccessException extends \Elgg\HttpException {
+class PostAccessException extends \Elgg\Exceptions\HttpException {
 
 	protected $entity;
 

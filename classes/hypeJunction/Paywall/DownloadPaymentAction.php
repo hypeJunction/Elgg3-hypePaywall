@@ -2,8 +2,8 @@
 
 namespace hypeJunction\Paywall;
 
-use Elgg\BadRequestException;
-use Elgg\EntityNotFoundException;
+use Elgg\Exceptions\Http\BadRequestException;
+use Elgg\Exceptions\Http\EntityNotFoundException;
 use Elgg\Http\ResponseBuilder;
 use Elgg\Request;
 use Exception;

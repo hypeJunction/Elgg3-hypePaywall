@@ -2,7 +2,7 @@
 
 namespace hypeJunction\Paywall;
 
-use Elgg\EntityNotFoundException;
+use Elgg\Exceptions\Http\EntityNotFoundException;
 use Elgg\Request;
 use hypeJunction\Payments\Amount;
 
