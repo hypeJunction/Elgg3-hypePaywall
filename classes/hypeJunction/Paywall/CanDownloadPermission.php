@@ -3,7 +3,7 @@
 namespace hypeJunction\Paywall;
 
 use Elgg\Database\QueryBuilder;
-use Elgg\Hook;
+use Elgg\Event;
 use hypeJunction\Payments\Amount;
 use hypeJunction\Subscriptions\SubscriptionsService;
 
@@ -19,12 +19,12 @@ class CanDownloadPermission {
 	 * @return bool
 	 * @throws \DataFormatException
 	 */
-	public function __invoke(Hook $hook) {
+	public function __invoke(Event $event) {
 
-		$file = $hook->getEntityParam();
+		$file = $event->getEntityParam();
 
 		$entity = $this->resolvePaywalledEntity($file);
-		$user = $hook->getUserParam();
+		$user = $event->getUserParam();
 
 		if (!$entity) {
 			return true;

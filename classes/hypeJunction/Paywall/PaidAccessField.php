@@ -20,7 +20,7 @@ class PaidAccessField extends Field {
 		$can_sell = elgg_is_admin_logged_in();
 
 		$params = ['entity' => $entity];
-		$can_sell = elgg_trigger_plugin_hook('permissions_check:sell', 'object', $params, $can_sell);
+		$can_sell = elgg_trigger_event_results('permissions_check:sell', 'object', $params, $can_sell);
 
 		if (!$can_sell) {
 			return false;
@@ -30,7 +30,7 @@ class PaidAccessField extends Field {
 			'entity' => $entity,
 		];
 
-		return elgg()->hooks->trigger(
+		return elgg()->events->triggerResults(
 			'uses:paid_access',
 			"$entity->type:$entity->subtype",
 			$params,

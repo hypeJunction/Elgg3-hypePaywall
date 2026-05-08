@@ -2,7 +2,7 @@
 
 namespace hypeJunction\Paywall;
 
-use Elgg\Hook;
+use Elgg\Event;
 use hypeJunction\Payments\TransactionInterface;
 
 class ProcessRefundedTransaction {
@@ -12,9 +12,9 @@ class ProcessRefundedTransaction {
 	 *
 	 * @param Hook $hook Hook
 	 */
-	public function __invoke(Hook $hook) {
+	public function __invoke(Event $event) {
 
-		$transaction = $hook->getEntityParam();
+		$transaction = $event->getEntityParam();
 
 		if (!$transaction instanceof TransactionInterface) {
 			return;

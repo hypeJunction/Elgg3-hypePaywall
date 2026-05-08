@@ -2,7 +2,7 @@
 
 namespace hypeJunction\Paywall;
 
-use Elgg\Hook;
+use Elgg\Event;
 
 class SetDownloadUrl {
 
@@ -15,9 +15,9 @@ class SetDownloadUrl {
 	 *
 	 * @return bool
 	 */
-	public function __invoke(Hook $hook) {
+	public function __invoke(Event $event) {
 
-		$file = $hook->getEntityParam();
+		$file = $event->getEntityParam();
 
 		if (!$file instanceof \ElggFile) {
 			return null;

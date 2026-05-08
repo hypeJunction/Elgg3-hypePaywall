@@ -3,7 +3,7 @@
 namespace hypeJunction\Paywall;
 
 use DataFormatException;
-use Elgg\Hook;
+use Elgg\Event;
 use hypeJunction\Payments\Amount;
 use function PasswordCompat\binary\check;
 
@@ -19,9 +19,9 @@ class PaidAccessGatekeeper {
 	 * @throws DataFormatException
 	 * @throws PostAccessException
 	 */
-	public function __invoke(Hook $hook) {
+	public function __invoke(Event $event) {
 
-		$entity = $hook->getEntityParam();
+		$entity = $event->getEntityParam();
 
 		$wall = $entity->paid_access_wall;
 		$plans = (array) $entity->paid_access_plans;

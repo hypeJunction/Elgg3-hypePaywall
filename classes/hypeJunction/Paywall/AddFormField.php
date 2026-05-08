@@ -11,9 +11,9 @@ class AddFormField {
 	 *
 	 * @return array
 	 */
-	public function __invoke(\Elgg\Hook $hook) {
+	public function __invoke(\Elgg\Event $event) {
 
-		$fields = $hook->getValue();
+		$fields = $event->getValue();
 
 		$fields['paid_access'] = new PaidAccessField([
 			'type' => 'paywall/access',
