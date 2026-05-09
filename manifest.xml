@@ -4,7 +4,7 @@
     <name>hypePaywall</name>
     <id>hypePaywall</id>
 
-    <description>Restrict access to content posts to paying members</description>
+    <description>Restrict access to content posts to paid members</description>
     <category>payments</category>
     <version type="dist">1.2.4</version>
 
