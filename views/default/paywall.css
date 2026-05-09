@@ -1,8 +1,12 @@
+:root {
+	--paywall-border-radius: 3px;
+}
+
 .paywall-entity-preview {
 	margin: 0 0 1rem 0;
 	padding: 1rem;
 	border: 1px solid var(--elgg-border-color-mild);
-	border-radius: 3px;
+	border-radius: var(--paywall-border-radius);
 }
 
 .paywall-payment-forms {
