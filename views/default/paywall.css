@@ -5,6 +5,13 @@
 	border-radius: 3px;
 }
 
-.elgg-columns.paywall-payment-forms > div {
+.paywall-payment-forms {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.paywall-payment-forms > .paywall-payment-col {
+	flex: 1 1 calc(50% - 0.5rem);
 	max-width: 50%;
 }

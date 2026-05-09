@@ -31,7 +31,7 @@ if (!empty($plans)) {
 
 	if ($subscribe) {
 		$subscribe = elgg_view_module('info', elgg_echo('paywall:module:subscribe'), $subscribe);
-		$subscribe = elgg_format_element('div', ['class' => 'elgg-col elgg-col1-of2'], $subscribe);
+		$subscribe = elgg_format_element('div', ['class' => 'paywall-payment-col'], $subscribe);
 	}
 }
 
@@ -41,9 +41,9 @@ $pay = elgg_view_form('paywall/pay/access', [], [
 
 if ($pay) {
 	$pay = elgg_view_module('info', elgg_echo('paywall:module:pay'), $pay);
-	$pay = elgg_format_element('div', ['class' => 'elgg-col elgg-col1-of2'], $pay);
+	$pay = elgg_format_element('div', ['class' => 'paywall-payment-col'], $pay);
 }
 
 echo elgg_format_element('div', [
-	'class' => 'elgg-columns paywall-payment-forms',
+	'class' => 'paywall-payment-forms',
 ], $subscribe . $pay);
