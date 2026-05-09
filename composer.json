@@ -8,7 +8,7 @@
         "plugin",
         "payments"
     ],
-    "license": "proprietary",
+    "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "hypeJunction",
