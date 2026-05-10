@@ -2,7 +2,7 @@
     "name": "hypejunction/hypepaywall",
     "type": "elgg-plugin",
     "description": "Restrict access to content posts to paid members",
-    "homepage": "https://github.com/hypeJunction/hypepaywall",
+    "homepage": "https://github.com/hypeJunction/Elgg3-hypePaywall",
     "keywords": [
         "elgg",
         "plugin",
@@ -11,8 +11,8 @@
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "hypeJunction",
-            "homepage": "https://github.com/hypeJunction"
+            "name": "Ismayil Khayredinov",
+            "email": "ismayil.khayredinov@gmail.com"
         }
     ],
     "require": {
@@ -23,11 +23,12 @@
         "moneyphp/money": "^3.1"
     },
     "extra": {
-        "installer-name": "hypePaywall"
+        "installer-name": "hypepaywall"
     },
     "autoload": {
         "psr-0": {
             "": "classes/"
         }
-    }
+    },
+    "version": "1.2.4"
 }
