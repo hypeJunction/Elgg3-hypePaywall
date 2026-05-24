@@ -1,34 +1,34 @@
 {
-    "name": "hypejunction/hypepaywall",
-    "type": "elgg-plugin",
-    "description": "Restrict access to content posts to paid members",
-    "homepage": "https://github.com/hypeJunction/Elgg3-hypePaywall",
-    "keywords": [
-        "elgg",
-        "plugin",
-        "payments"
-    ],
-    "license": "GPL-2.0-or-later",
-    "authors": [
-        {
-            "name": "Ismayil Khayredinov",
-            "email": "ismayil.khayredinov@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=8.3",
-        "ext-intl": "*",
-        "elgg/elgg": "~7.0.0",
-        "composer/installers": "^2.0",
-        "moneyphp/money": "^3.1"
-    },
-    "extra": {
-        "installer-name": "hypepaywall"
-    },
-    "autoload": {
-        "psr-0": {
-            "": "classes/"
-        }
-    },
-    "version": "1.2.4"
+  "name": "hypejunction/hypepaywall",
+  "type": "elgg-plugin",
+  "description": "Restrict access to content posts to paid members",
+  "homepage": "https://github.com/hypeJunction/Elgg3-hypePaywall",
+  "keywords": [
+    "elgg",
+    "plugin",
+    "payments"
+  ],
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Ismayil Khayredinov",
+      "email": "ismayil.khayredinov@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.3",
+    "ext-intl": "*",
+    "elgg/elgg": "~7.0.0",
+    "composer/installers": "^2.0",
+    "moneyphp/money": "^3.1"
+  },
+  "extra": {
+    "installer-name": "hypepaywall"
+  },
+  "autoload": {
+    "psr-4": {
+      "hypeJunction\\\\Paywall\\\\": "classes/hypeJunction/Paywall/"
+    }
+  },
+  "version": "1.2.4"
 }
