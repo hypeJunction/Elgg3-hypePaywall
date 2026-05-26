@@ -39,20 +39,20 @@ class Bootstrap extends PluginBootstrap {
 	 * {@inheritdoc}
 	 */
 	public function init() {
-		elgg_extend_view('elements/components.css', 'paywall.css');
+		\elgg_extend_view('elements/components.css', 'paywall.css');
 
-		elgg_register_plugin_hook_handler('fields', 'object', AddFormField::class);
+		\elgg_register_plugin_hook_handler('fields', 'object', AddFormField::class);
 
-		elgg_register_plugin_hook_handler('gatekeeper', 'all', PaidAccessGatekeeper::class);
+		\elgg_register_plugin_hook_handler('gatekeeper', 'all', PaidAccessGatekeeper::class);
 
-		elgg_register_plugin_hook_handler('transaction:paid', 'payments', ProcessSuccessfulTransaction::class);
-		elgg_register_plugin_hook_handler('transaction:refunded', 'payments', ProcessRefundedTransaction::class);
+		\elgg_register_plugin_hook_handler('transaction:paid', 'payments', ProcessSuccessfulTransaction::class);
+		\elgg_register_plugin_hook_handler('transaction:refunded', 'payments', ProcessRefundedTransaction::class);
 
-		elgg_register_plugin_hook_handler('download:url', 'file', SetDownloadUrl::class, 900);
+		\elgg_register_plugin_hook_handler('download:url', 'file', SetDownloadUrl::class, 900);
 
-		elgg_register_plugin_hook_handler('permissions_check:download', 'all', CanDownloadPermission::class);
+		\elgg_register_plugin_hook_handler('permissions_check:download', 'all', CanDownloadPermission::class);
 
-		elgg_extend_view('object/elements/imprint/contents', 'paywall/imprint');
+		\elgg_extend_view('object/elements/imprint/contents', 'paywall/imprint');
 	}
 
 	/**

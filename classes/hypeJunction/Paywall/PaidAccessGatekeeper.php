@@ -37,7 +37,7 @@ class PaidAccessGatekeeper {
 		}
 
 		if ($wall) {
-			$site_plans = (array) elgg_get_config('subscriptions.site_membership_plans');
+			$site_plans = (array) \elgg_get_config('subscriptions.site_membership_plans');
 
 			$plans = array_merge($plans, $site_plans);
 		}
@@ -53,7 +53,7 @@ class PaidAccessGatekeeper {
 			}
 		}
 
-		$user = elgg_get_logged_in_user_entity();
+		$user = \elgg_get_logged_in_user_entity();
 		if (check_entity_relationship($user->guid, 'paid_access', $entity->guid)) {
 			return;
 		}
@@ -62,7 +62,7 @@ class PaidAccessGatekeeper {
 		$exception->setParams([
 			'entity' => $entity,
 		]);
-		$exception->setRedirectUrl(elgg_generate_url('paywall:pay:access', [
+		$exception->setRedirectUrl(\elgg_generate_url('paywall:pay:access', [
 			'guid' => $entity->guid,
 		]));
 

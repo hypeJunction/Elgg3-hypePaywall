@@ -11,7 +11,7 @@ class PostAccessException extends \Elgg\Exceptions\HttpException {
 	 */
 	public function __construct(string $message = "", int $code = 0, \Throwable $previous = null) {
 		if (!$message) {
-			$message = elgg_echo('PostAccessException');
+			$message = \elgg_echo('PostAccessException');
 		}
 		if (!$code) {
 			$code = ELGG_HTTP_FORBIDDEN;
