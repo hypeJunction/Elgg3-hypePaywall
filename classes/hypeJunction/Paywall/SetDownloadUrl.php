@@ -28,11 +28,11 @@ class SetDownloadUrl {
 		}
 
 		if ($this->isPaywallEnabled($file)) {
-			$url = elgg_generate_url('paywall:download', [
+			$url = \elgg_generate_url('paywall:download', [
 				'guid' => $file->guid,
 			]);
 
-			return elgg_normalize_site_url($url);
+			return \elgg_normalize_site_url($url);
 		}
 	}
 }

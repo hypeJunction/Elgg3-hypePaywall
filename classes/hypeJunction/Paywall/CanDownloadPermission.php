@@ -30,7 +30,7 @@ class CanDownloadPermission {
 			return true;
 		}
 
-		$plans = elgg_is_active_plugin('hypeSubscriptions') ? (array) $entity->paid_download_plans : null;
+		$plans = \elgg_is_active_plugin('hypeSubscriptions') ? (array) $entity->paid_download_plans : null;
 		$amount = new Amount((int) $entity->paid_download_amount, $entity->paid_download_currency);
 
 		if (empty($plans) && empty($amount->getAmount())) {
@@ -50,7 +50,7 @@ class CanDownloadPermission {
 			return true;
 		}
 
-		if (elgg_is_active_plugin('hypeSubscriptions')) {
+		if (\elgg_is_active_plugin('hypeSubscriptions')) {
 			$svc = SubscriptionsService::instance();
 			/* @var $svc \hypeJunction\Subscriptions\SubscriptionsService */
 

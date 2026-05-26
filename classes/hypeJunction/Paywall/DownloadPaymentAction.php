@@ -34,7 +34,7 @@ class DownloadPaymentAction {
 			throw new BadRequestException();
 		}
 
-		return elgg_call(ELGG_IGNORE_ACCESS, function () use ($request, $transaction, $method) {
+		return \elgg_call(ELGG_IGNORE_ACCESS, function () use ($request, $transaction, $method) {
 
 			$transaction->save();
 
