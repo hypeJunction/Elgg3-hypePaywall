@@ -57,18 +57,18 @@ trait Downloadable {
 	public function download(\ElggFile $file) {
 		$file->setVolatileData('allow_download', true);
 
-		$user = elgg_get_logged_in_user_entity();
+		$user = \elgg_get_logged_in_user_entity();
 
 		$log = serialize([
 			'user_guid' => $user->guid,
-			'ip_address' => _elgg_services()->request->getClientIp(),
+			'ip_address' => \_elgg_services()->request->getClientIp(),
 		]);
 
 		$file->annotate('log:download', $log, ACCESS_PUBLIC, $user->guid);
 
-		elgg_trigger_event('download', 'file', $file);
+		\elgg_trigger_event('download', 'file', $file);
 
-		return elgg_redirect_response($file->getDownloadURL());
+		return \elgg_redirect_response($file->getDownloadURL());
 	}
 
 	/**
@@ -79,7 +79,7 @@ trait Downloadable {
 	 * @return false|string
 	 */
 	public function getPaymentUrl(\ElggFile $file) {
-		return elgg_generate_url('paywall:pay:download', [
+		return \elgg_generate_url('paywall:pay:download', [
 			'guid' => $this->resolvePaywalledEntity($file)->guid,
 		]);
 	}

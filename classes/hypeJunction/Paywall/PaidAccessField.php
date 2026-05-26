@@ -17,10 +17,10 @@ class PaidAccessField extends Field {
 			return false;
 		}
 
-		$can_sell = elgg_is_admin_logged_in();
+		$can_sell = \elgg_is_admin_logged_in();
 
 		$params = ['entity' => $entity];
-		$can_sell = elgg_trigger_event_results('permissions_check:sell', 'object', $params, $can_sell);
+		$can_sell = \elgg_trigger_event_results('permissions_check:sell', 'object', $params, $can_sell);
 
 		if (!$can_sell) {
 			return false;
@@ -44,11 +44,11 @@ class PaidAccessField extends Field {
 	public function save(ElggEntity $entity, ParameterBag $parameters) {
 		$value = $parameters->get($this->name);
 
-		$wall = (bool) elgg_extract('wall', $value);
-		$plans = elgg_extract('plans', $value);
-		$price = elgg_extract('price', $value);
-		$amount = elgg_extract('amount', $price, '0');
-		$currency = elgg_extract('currency', $price);
+		$wall = (bool) \elgg_extract('wall', $value);
+		$plans = \elgg_extract('plans', $value);
+		$price = \elgg_extract('price', $value);
+		$amount = \elgg_extract('amount', $price, '0');
+		$currency = \elgg_extract('currency', $price);
 
 		$amount = Amount::fromString($amount, $currency);
 

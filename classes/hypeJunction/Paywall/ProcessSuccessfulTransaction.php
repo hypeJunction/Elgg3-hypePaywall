@@ -31,15 +31,15 @@ class ProcessSuccessfulTransaction {
 				if ($entity && $customer) {
 					add_entity_relationship($customer->guid, 'paid_access', $entity->guid);
 
-					$link = elgg_view('output/url', [
+					$link = \elgg_view('output/url', [
 						'href' => $entity->getURL(),
 						'text' => $entity->getDisplayName(),
 					]);
 
-					$summary = elgg_echo('paywall:paid_access:granted:subject', [$link]);
+					$summary = \elgg_echo('paywall:paid_access:granted:subject', [$link]);
 					$subject = strip_tags($summary);
 
-					$message = elgg_echo('paywall:paid_access:granted:message', [
+					$message = \elgg_echo('paywall:paid_access:granted:message', [
 						$entity->getDisplayName(),
 						$entity->getURL(),
 					]);
@@ -59,15 +59,15 @@ class ProcessSuccessfulTransaction {
 				if ($entity && $customer) {
 					add_entity_relationship($customer->guid, 'paid_download', $entity->guid);
 
-					$link = elgg_view('output/url', [
+					$link = \elgg_view('output/url', [
 						'href' => $entity->getURL(),
 						'text' => $entity->getDisplayName(),
 					]);
 
-					$summary = elgg_echo('paywall:paid_download:granted:subject', [$link]);
+					$summary = \elgg_echo('paywall:paid_download:granted:subject', [$link]);
 					$subject = strip_tags($summary);
 
-					$message = elgg_echo('paywall:paid_download:granted:message', [
+					$message = \elgg_echo('paywall:paid_download:granted:message', [
 						$entity->getDisplayName(),
 						$entity->getURL(),
 					]);

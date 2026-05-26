@@ -29,10 +29,10 @@ class PaywallUnitTest extends UnitTestCase {
 		]);
 		/* @var $file \ElggFile */
 
-		$url = elgg_get_download_url($file);
+		$url = \elgg_get_download_url($file);
 
 		$this->assertEquals(
-			elgg_normalize_site_url("paywall/download/$file->guid"),
+			\elgg_normalize_site_url("paywall/download/$file->guid"),
 			$url
 		);
 	}
@@ -100,14 +100,14 @@ class PaywallUnitTest extends UnitTestCase {
 		/* @var $file \ElggFile */
 
 		$user = $this->createUser();
-		elgg_get_session()->setLoggedInUser($user);
+		\elgg_get_session()->setLoggedInUser($user);
 
 		$request = $this->prepareHttpRequest("paywall/download/$file->guid");
 
 		try {
-			_elgg_services()->router->getResponse($request);
+			\_elgg_services()->router->getResponse($request);
 		} catch (\Exception $ex) {
-			elgg_get_session()->removeLoggedInUser();
+			\elgg_get_session()->removeLoggedInUser();
 
 			throw $ex;
 		}
@@ -120,7 +120,7 @@ class PaywallUnitTest extends UnitTestCase {
 			$calls++;
 		};
 
-		elgg_register_event_handler('download', 'file', $handler);
+		\elgg_register_event_handler('download', 'file', $handler);
 
 		$owner = $this->createUser();
 		$file = $this->createObject([
@@ -136,22 +136,22 @@ class PaywallUnitTest extends UnitTestCase {
 		$file->close();
 
 		$user = $this->createUser();
-		elgg_get_session()->setLoggedInUser($user);
+		\elgg_get_session()->setLoggedInUser($user);
 
 		add_entity_relationship($user->guid, 'paid_download', $file->guid);
 
 		$request = $this->prepareHttpRequest("paywall/download/$file->guid");
 
-		$response = _elgg_services()->router->getResponse($request);
+		$response = \_elgg_services()->router->getResponse($request);
 		/* @var $response \Elgg\Http\RedirectResponse */
 
 		$this->assertInstanceOf(RedirectResponse::class, $response);
 
 		$this->assertEquals(1, $calls);
 
-		elgg_unregister_event_handler('download', 'file', $handler);
+		\elgg_unregister_event_handler('download', 'file', $handler);
 
-		elgg_get_session()->removeLoggedInUser();
+		\elgg_get_session()->removeLoggedInUser();
 
 		$file->delete();
 	}
